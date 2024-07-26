@@ -1,0 +1,96 @@
+<div class="container-record">
+    <div class="content">
+        <div class="p-3"><p>ประวัติการขึ้นทะเบียนสุนัขและแมวจรจัด</p></div>
+        <div class="wrapper">
+            <div class="header">
+              <ul>
+                <li class="active form_1_progessbar">
+                  <div>
+                    <p>1</p>
+                  </div>
+                  <span>ข้อมูลสถานที่/ผู้ให้ข้อมูล</span>
+                </li>
+                <li class="form_2_progessbar">
+                  <div>
+                    <p>2</p>
+                  </div>
+                  <span>ข้อมูลสุนัขและแมวจรจัด</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+    </div>
+    <div class="content">
+        <div class="grid-content">
+            <div class="text-content">
+                <div><i class="fas fa-calendar-alt"></i>ประวัติการขึ้นทะเบียนสุนัขและแมวจรจัด</div>
+            </div>
+        </div>
+        <form class="form-signin" action="#" method="POST">
+                <div class="text-form">
+                    <p>ผู้ให้ข้อมูล </p>
+                    <input type="text" class="form-control" id="#" name="#" placeholder="ชื่อ-นามสกุล" value="" required
+                        autofocus>
+                </div>
+
+                <div class="text-form">
+                    <p>โทรศัพท์มือถือ</p>
+                    <input type="number" class="form-control" id="#" name="#" placeholder="เบอร์โทรศัพท์มือถือ"
+                        value="#" required>
+                </div>
+                <div class="text-form">
+                    <p>สถานที่พบ</p>
+                    <textarea type="text" class="form-control" id="#" name="#" placeholder="ตลาด/ถนน/วัด" value=""></textarea>
+                </div>
+            <div class="text-form">
+    <p>จังหวัด *</p>
+    <select class="form-control" name="Ref_prov_id" id="province" 
+        (change)="getAmphures()" [(ngModel)]="selectedProvince" required>
+        <option value="" selected disabled>-กรุณาเลือกจังหวัด-</option>
+        <option *ngFor="let province of provinces" [value]="province.id">{{ province.name_th }}</option>
+    </select>
+</div>
+<div class="text-form">
+    <p>อำเภอ *</p>
+    <select class="form-control" name="Ref_amphure_id" id="amphure" 
+        (change)="getDistricts()" [(ngModel)]="selectedAmphure" required>
+        <option value="" selected disabled>-กรุณาเลือกอำเภอ-</option>
+        <option *ngFor="let amphure of amphures" [value]="amphure.id">{{ amphure.name_th }}</option>
+    </select>
+</div>
+                <div class="grid-2">
+                    <div class="text-form">
+    <p>แขวง/ตำบล *</p>
+    <select class="form-control" name="Ref_tambon_id" id="tambon" 
+        [(ngModel)]="selectedTambon" required>
+        <option value="" selected disabled>-กรุณาเลือกแขวง/ตำบล-</option>
+        <option *ngFor="let tambon of tambons" [value]="tambon.id">{{ tambon.name_th }}</option>
+    </select>
+</div>
+                    <div class="text-form">
+                        <p>หมู่</p>
+                        <input type="text" class="form-control" id="#" name="#" placeholder="หมู่" value="" >
+                    </div>
+                </div>
+            <div class="text-form">
+                <p>รหัสไปรษณีย์ *</p>
+                <input type="text" class="form-control" id="#" name="#" placeholder="รหัสไปรษณีย์" value="">
+            </div>
+
+
+            <button class="button-map"><i class="fas fa-map-marked-alt"></i>ซ่อนแผนที่</button>
+            <input style="margin-top: 15px;" type="text" class="form-control" id="#" name="#" placeholder="ค้นหาตำแหน่ง" value="">
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3809.4956993340243!2d104.11034391195247!3d17.291616183510897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313c8e2437c0a1d9%3A0x498c64aea0a7f267!2z4Lih4Lir4Liy4Lin4Li04LiX4Lii4Liy4Lil4Lix4Lii4LmA4LiB4Lip4LiV4Lij4Lio4Liy4Liq4LiV4Lij4LmMIOC4p-C4tOC4l-C4ouC4suC5gOC4guC4leC5gOC4ieC4peC4tOC4oeC4nuC4o-C4sOC5gOC4geC4teC4ouC4o-C4leC4tCDguIjguLHguIfguKvguKfguLHguJTguKrguIHguKXguJnguITguKM!5e0!3m2!1sth!2sth!4v1698777654727!5m2!1sth!2sth"
+            width="100%" height="500px" style="border-radius:5px;border: none;margin-top: 5px;" allowfullscreen=""loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          
+       
+            <div class="grid-button">
+                <button routerLink="/HistoryRegistrationStray" class="button-submit">ดูรายการสัตว์เลี้ยง</button>
+                <button routerLink="/HistoryRegistrationStray" class="button-update">อัพเดทข้อมูล</button>
+                <button routerLink="/RecordRegistration" class="button-cancel">ยกเลิก</button>
+            </div>
+  
+    </form>
+    </div>
+</div>

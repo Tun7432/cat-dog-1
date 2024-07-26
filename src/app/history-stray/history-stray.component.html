@@ -1,0 +1,92 @@
+<div class="container-record">
+    <div class="content">
+        <div class="p-3"><p>ค้นหาสุนัขและแมวจรจัดที่มีประวัติขึ้นทะเบียนแล้ว</p></div>
+    </div>
+    <div class="content">
+        <div class="grid-content">
+            <div class="text-content">
+                <i class="fas fa-user"></i>สวัสดีคุณ : Admin Admin
+            </div>
+        </div>
+
+            <form class="form-signin" action="#" method="POST">
+
+                <div class="text-form">
+    <p>จังหวัด *</p>
+    <select class="form-control" name="Ref_prov_id" id="province" 
+        (change)="getAmphures()" [(ngModel)]="selectedProvince" required>
+        <option value="" selected disabled>-กรุณาเลือกจังหวัด-</option>
+        <option *ngFor="let province of provinces" [value]="province.id">{{ province.name_th }}</option>
+    </select>
+</div>
+<div class="text-form">
+    <p>อำเภอ *</p>
+    <select class="form-control" name="Ref_amphure_id" id="amphure" 
+        (change)="getDistricts()" [(ngModel)]="selectedAmphure" required>
+        <option value="" selected disabled>-กรุณาเลือกอำเภอ-</option>
+        <option *ngFor="let amphure of amphures" [value]="amphure.id">{{ amphure.name_th }}</option>
+    </select>
+</div>
+                <div class="grid-2">
+                    <div class="text-form">
+    <p>แขวง/ตำบล *</p>
+    <select class="form-control" name="Ref_tambon_id" id="tambon" 
+        [(ngModel)]="selectedTambon" required>
+        <option value="" selected disabled>-กรุณาเลือกแขวง/ตำบล-</option>
+        <option *ngFor="let tambon of tambons" [value]="tambon.id">{{ tambon.name_th }}</option>
+    </select>
+</div>
+                    <div class="text-form">
+                        <p>หมู่</p>
+                        <input type="text" class="form-control" id="#" name="#" placeholder="หมู่" value="" >
+                    </div>
+                </div>
+                <div class="text-form">
+                    <p>สถานที่สำคัญ</p>
+                    <textarea type="text" class="form-control" id="#" name="#" placeholder="ตลาด/ถนน/วัด" value=""></textarea>
+                </div>
+                <div class="text-form">
+                    <p>บ้านเลขที่ *</p>
+                    <input type="text" class="form-control" id="#" name="#" placeholder="บ้านเลขที่" value="" >
+                </div>
+                <div class="text-form">
+                    <p>ตรอก/ซอย</p>
+                    <input type="text" class="form-control" id="#" name="#" placeholder="ตรอก/ซอย" value="">
+                </div>
+                <div class="text-form">
+                    <p>ถนน</p>
+                    <input type="text" class="form-control" id="#" name="#" placeholder="ถนน" value="" >
+                </div>
+                <div class="text-form">
+                    <p>รหัสไปรษณีย์ *</p>
+                    <input type="text" class="form-control" id="#" name="#" placeholder="รหัสไปรษณีย์" value="">
+                </div>
+                <div class="text-form">
+                <p>ผู้ให้ข้อมูล</p>
+                <div class="grid-search ">
+                    <input type="text" placeholder="ชื่อ-นามสกุล .." name="text">
+                    <div routerLink="/HistoryOwnerComponent" style="height: 100%; display: flex;align-items: center;justify-content: center;" class="button-submit" type="submit"><i class="fa fa-search"></i>
+                    </div>
+                </div>
+                </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">ลำดับ</th>
+                                <th scope="col">ข้อมูล</th>
+                                <th scope="col">จัดการข้อมูล</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="ลำดับ">1</td>
+                                <td data-label="ข้อมูล">บ้านเกษตร สกลนคร</td>
+                                <td data-label="จัดการข้อมูล">
+                                        <button routerLink="/HistoryInformer" class="button-submit" style="padding: 10px 15px;">ดูข้อมูล</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>      
+        </form>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+<div class="container-record">
+    <div class="content">
+        <div class="p-3"><p>แบบฟอร์มขึ้นทะเบียนสัตว์เลี้ยง</p></div>
+        <div class="wrapper">
+            <div class="header">
+              <ul>
+                <li class="active form_1_progessbar">
+                  <div>
+                    <p>1</p>
+                  </div>
+                  <span>ข้อมูลเจ้าของสัตว์เลี้ยง</span>
+                </li>
+                <li class="active form_2_progessbar">
+                  <div>
+                    <p>2</p>
+                  </div>
+                  <span>ข้อมูลสัตว์เลี้ยง</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+    </div>
+    <div class="content">
+        <div class="grid-content">
+            <div class="text-content">
+                <i class="fas fa-user"></i>ข้อมูลเจ้าของสัตว์เลี้ยง
+            </div>
+            <div class="box-content1">
+                <p style="margin-top: 10px;">รูปโปรไฟล์</p>
+                <div class="img-profile">
+                    <img src="/assets/profile.png">
+                </div>
+            </div>
+        </div>
+        <div class="text-profile">
+            <p>ชื่อ-นามสกุล : นายใจดี สู้เสือ</p>
+            <p>เบอร์โทรศัพท์ : 061-1234567</p>
+            <p>email : BOSS.gmail.com</p>
+        </div>
+    </div>
+    <div class="content">
+        <div class="grid-content">
+            <div class="text-content">
+                <i class="fas fa-paw"></i>ข้อมูลสัตว์เลี้ยง
+            </div>
+        </div>
+        <form class="form-signin" action="#" method="POST">
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">ลำดับ</th>
+                    <th scope="col">ประเภท</th>
+                    <th scope="col">ชื่อ</th>
+                    <th scope="col">รูป</th>
+                    <th scope="col">จัดการข้อมูล</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="ลำดับ">1</td>
+                    <td data-label="ประเภท">หมา</td>
+                    <td data-label="ชื่อ">โก้</td>
+                    <td data-label="รูป">
+                        <img src="/assets/dog.jpg" width="150px">
+                    </td>
+                    <td data-label="จัดการข้อมูล">
+                            <button routerLink="/InformationPetsManage" class="button-submit" style="padding: 10px 15px;"><i style="margin: 0px;" class="far fa-check-square"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="ลำดับ">2</td>
+                    <td data-label="ประเภท">แมว</td>
+                    <td data-label="ชื่อ">ทอง</td>
+                    <td data-label="รูป">
+                        <img src="/assets/cat.jpg" width="150px">
+                    </td>
+                    <td data-label="จัดการข้อมูล">
+                            <button routerLink="/InformationPetsManage" class="button-submit" style="padding: 10px 15px;"><i style="margin: 0px;" class="far fa-check-square"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="button-add" style="padding: 10px 25px; margin-top: 5px;"><i class="fas fa-plus"></i>เพิ่มข้อมูลสัตว์เลี้ยง</button>
+
+        <div class="img-pets">
+            <div class="img-pets-box">
+                <img src="/assets/dog.jpg" alt="dog" width="100%">
+                <a routerLink="/InformationPetsManage"><p>ทอง</p></a>
+            </div>
+            <div class="img-pets-box">
+                <img src="/assets/cat.jpg" alt="cat" width="100%">
+                <a routerLink="/InformationPetsManage"><p>บัคกี้</p></a>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="text-center">
+    <p class="p-1">ยินดีต้อนรับ</p>
+    <p>ระบบสารสนเทศเพื่อการเฝ้าระวังโรคพิษสุนัขบ้า</p>
+  </div>
+  <form
+    class="modal-content animate"
+    method="post"
+    action="/RecordRegistration"
+  >
+    <div class="container-form">
+      <label for="email"> <i class="fa fa-user"></i> ผู้ใช้งาน</label>
+      <input
+        type="email"
+        placeholder="กรอกอีเมลของท่าน"
+        name="username"
+        id="username"
+        #email
+        required
+      />
+
+      <label for="psw"> <i class="fa fa-lock"></i> รหัสผ่าน</label>
+      <input
+        type="password"
+        placeholder="กรอกรหัสผ่านของท่าน"
+        name="psw"
+        id="password"
+        #password
+        required
+      />
+
+      <button (click)="login(email.value, password.value)" class="button-login">
+        เข้าสู่ระบบ
+      </button>
+      <!-- <button routerLink="/RecordRabies" style="margin-top: 10px;" onclick="checkInputs()" class="button-login">ไปยังวิเคราะห์ข้อมูล</button> -->
+    </div>
+  </form>
+  <div class="img-login">
+    <img src="/assets/bg2.png" alt="bg" />
+  </div>
+</div>

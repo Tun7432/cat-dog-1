@@ -1,0 +1,250 @@
+<div class="container-record">
+    <div class="content">
+        <div class="p-3"><p>แบบฟอร์มขึ้นทะเบียนสัตว์เลี้ยง</p></div>
+        <div class="wrapper">
+            <div class="header">
+              <ul>
+                <li class="active form_1_progessbar">
+                  <div>
+                    <p>1</p>
+                  </div>
+                  <span>ข้อมูลเจ้าของสัตว์เลี้ยง</span>
+                </li>
+                <li class="form_2_progessbar">
+                  <div>
+                    <p>2</p>
+                  </div>
+                  <span>ข้อมูลสัตว์เลี้ยง</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+    </div>
+    <div class="content">
+        <div class="grid-content">
+            <div class="text-content box-2">
+                <div><i class="fas fa-user"></i>ข้อมูลเจ้าของสัตว์เลี้ยง</div>
+                <button  class="button-submit"><i class="fas fa-search"></i>ค้นหาเจ้าของสัตว์เลี้ยง</button>
+            </div>
+            <div class="box-content1">
+                <p style="margin-top: 10px;">รูปโปรไฟล์</p>
+                <div class="img-profile">
+                    <img src="/assets/profile.png">
+                    <input type="file" id="selfie" name="selfie" accept="image/*" capture="user" />
+                    <label for="selfie"><i class="fas fa-trash-alt" style="color: aliceblue; margin: 0px;"></i></label>
+                </div>
+            </div>
+        </div>
+        <form class="form-signin" action="#" method="POST">
+
+            <div class="grid-3">
+                <div class="text-form">
+                    <p>คำนำหน้า *</p>
+                    <select name="#" id="#" class="form-select" aria-label="Default select example">
+                        <option value="0">คำนำหน้า</option>
+                        <option value="1">ชาย</option>
+                        <option value="2">หญิง</option>
+                    </select>
+                </div>
+
+                <div class="text-form">
+                    <p>ชื่อ *</p>
+                    <input type="text" class="form-control" id="#" name="#" placeholder="ชื่อภาษาไทย" value="" required
+                        autofocus>
+                </div>
+
+                <div class="text-form">
+                    <p>นามสกุล *</p>
+                    <input type="text" class="form-control" id="#" name="#" placeholder="นามสกุลภาษาไทย" value=""
+                        required autofocus>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="text-form">
+                    <p>วัน/เดือน/ปีเกิด *</p>
+                    <input type="date" class="form-control" id="#" name="#" placeholder="Birthday" value="#" required>
+                </div>
+
+                <div class="text-form">
+                    <p>อายุ</p>
+                    <input type="number" class="form-control" id="#" name="#" placeholder="อายุ" value="#" required>
+                </div>
+            </div>
+            <div class="grid-5">
+                <div class="text-form">
+                    <p>โทรศัพท์มือถือ *</p>
+                    <input type="number" class="form-control" id="#" name="#" placeholder="เบอร์โทรศัพท์มือถือ"
+                        value="#" required>
+                </div>
+                <div>
+                    <div class="text-form">
+                        <p>ประวัติการได้รับวัดซีนพิษสุนัข์บ้า *</p>
+                        <div class="grid-4">
+                            <div class="checkbox-wrapper-42">
+                                <input id="cbx-42" type="checkbox" />
+                                <label class="cbx" for="cbx-42"></label>
+                                <label class="lbl" for="cbx-42">เคย</label>
+                            </div>
+                            <div class="text-form1">
+                                <p style="width:45px;">วันที่</p>
+                                <input type="text" class="form-control" id="#" name="#" placeholder="วันที่" value=""
+                                    required autofocus>
+                            </div>
+                            <div class="text-form1">
+                                <p>เดือน</p>
+                                <input type="text" class="form-control" id="#" name="#" placeholder="เดือน" value=""
+                                    required autofocus>
+                            </div>
+                            <div class="text-form1">
+                                <p>ปี</p>
+                                <input type="text" class="form-control" id="#" name="#" placeholder="ปี" value=""
+                                    required autofocus>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkbox-wrapper-42">
+                        <input id="cbx-43" type="checkbox" />
+                        <label class="cbx" for="cbx-43"></label>
+                        <label class="lbl" for="cbx-43">ไม่เคย</label>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-6">
+                <div class="text-form">
+                    <p>อีเมล</p>
+                    <input type="email" class="form-control" id="#" name="#" placeholder="อีเมล" value="" required>
+                </div>
+                <div>
+                    <div class="text-form" style="margin-top: 5px;">
+                        <p>ประวัติการถูกกัด / ข่วน *</p>
+                        <div class="grid-7">
+                            <div class="checkbox-wrapper-42">
+                                <input id="cbx-44" type="checkbox" />
+                                <label class="cbx" for="cbx-44"></label>
+                                <label class="lbl" for="cbx-44">เคย</label>
+                            </div>
+                            <div class="text-form1">
+                                <p style="width:55px;">ครั้ง/ปี</p>
+                                <input type="text" class="form-control" id="#" name="#" placeholder="จำนวนครั้ง"
+                                    value="" required autofocus>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkbox-wrapper-42">
+                        <input id="cbx-45" type="checkbox" />
+                        <label class="cbx" for="cbx-45"></label>
+                        <label class="lbl" for="cbx-45">ไม่เคย</label>
+                    </div>
+                </div>
+            </div>
+            <div class="text-form">
+                <p>ประวัติการได้รับวัดซีนป้องกันโรคพิษสุนัข์บ้า</p>
+                <div class="grid-8">
+                    <div class="checkbox-wrapper-42">
+                        <input id="cbx-48" type="checkbox" />
+                        <label class="cbx" for="cbx-48"></label>
+                        <label class="lbl" for="cbx-48">ไม่เคย</label>
+                    </div>
+                    <div class="checkbox-wrapper-42">
+                        <input id="cbx-49" type="checkbox" />
+                        <label class="cbx" for="cbx-49"></label>
+                        <label class="lbl" for="cbx-49">เคย</label>
+                    </div>  
+                </div>
+            </div>
+            <button class="button-submit" style="margin-top: 5px;">เพิ่มข้อมูล</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">ลำดับ</th>
+                        <th scope="col">วัคซีน</th>
+                        <th scope="col">เดือน/ปี</th>
+                        <th scope="col">รายการ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="ลำดับ">1</td>
+                        <td data-label="วัคซีน">วัคซีนป้องกันโรคพิษสุนัขบ้า</td>
+                        <td data-label="เดือน/ปี"><input type="date" class="form-control" id="#" name="#" placeholder="Birthday" value="#"></td>
+                        <td data-label="รายการ">
+                            <div class="box-button">
+                                <button routerLink="/qr-code" class="button-submit" style="width:100%">บันทึก</button>
+                                <button class="button-cancel" style="width:100%">ยกเลิก</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <div class="content">
+        <div class="grid-content">
+            <div class="text-content">
+                <i class="fas fa-home"></i>ที่อยู่ตามทะเบียนบ้าน
+            </div>
+        </div>
+        <form class="form-signin" action="#" method="POST">
+
+                <div class="text-form">
+    <p>จังหวัด *</p>
+    <select class="form-control" name="Ref_prov_id" id="province" 
+        (change)="getAmphures()" [(ngModel)]="selectedProvince" required>
+        <option value="" selected disabled>-กรุณาเลือกจังหวัด-</option>
+        <option *ngFor="let province of provinces" [value]="province.id">{{ province.name_th }}</option>
+    </select>
+</div>
+<div class="text-form">
+    <p>อำเภอ *</p>
+    <select class="form-control" name="Ref_amphure_id" id="amphure" 
+        (change)="getDistricts()" [(ngModel)]="selectedAmphure" required>
+        <option value="" selected disabled>-กรุณาเลือกอำเภอ-</option>
+        <option *ngFor="let amphure of amphures" [value]="amphure.id">{{ amphure.name_th }}</option>
+    </select>
+</div>
+                <div class="grid-2">
+                    <div class="text-form">
+    <p>แขวง/ตำบล *</p>
+    <select class="form-control" name="Ref_tambon_id" id="tambon" 
+        [(ngModel)]="selectedTambon" required>
+        <option value="" selected disabled>-กรุณาเลือกแขวง/ตำบล-</option>
+        <option *ngFor="let tambon of tambons" [value]="tambon.id">{{ tambon.name_th }}</option>
+    </select>
+</div>
+                    <div class="text-form">
+                        <p>หมู่</p>
+                        <input type="text" class="form-control" id="#" name="#" placeholder="หมู่" value="" >
+                    </div>
+                </div>
+                <div class="text-form">
+                    <p>บ้านเลขที่ *</p>
+                    <input type="text" class="form-control" id="#" name="#" placeholder="บ้านเลขที่" value="" >
+                </div>
+                <div class="text-form">
+                    <p>ตรอก/ซอย</p>
+                    <input type="text" class="form-control" id="#" name="#" placeholder="ตรอก/ซอย" value="">
+                </div>
+                <div class="text-form">
+                    <p>ถนน</p>
+                    <input type="text" class="form-control" id="#" name="#" placeholder="ถนน" value="" >
+                </div>
+                <div class="text-form">
+                    <p>รหัสไปรษณีย์ *</p>
+                    <input type="text" class="form-control" id="#" name="#" placeholder="รหัสไปรษณีย์" value="">
+                </div>
+
+                <button class="button-map"><i class="fas fa-map-marked-alt"></i>ซ่อนแผนที่</button>
+                <input style="margin-top: 15px;" type="text" class="form-control" id="#" name="#" placeholder="ค้นหาตำแหน่ง" value="">
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3809.4956993340243!2d104.11034391195247!3d17.291616183510897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313c8e2437c0a1d9%3A0x498c64aea0a7f267!2z4Lih4Lir4Liy4Lin4Li04LiX4Lii4Liy4Lil4Lix4Lii4LmA4LiB4Lip4LiV4Lij4Lio4Liy4Liq4LiV4Lij4LmMIOC4p-C4tOC4l-C4ouC4suC5gOC4guC4leC5gOC4ieC4peC4tOC4oeC4nuC4o-C4sOC5gOC4geC4teC4ouC4o-C4leC4tCDguIjguLHguIfguKvguKfguLHguJTguKrguIHguKXguJnguITguKM!5e0!3m2!1sth!2sth!4v1698777654727!5m2!1sth!2sth"
+                width="100%" height="500px" style="border-radius:5px;border: none;margin-top: 5px;" allowfullscreen=""loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                <div class="grid-button">
+                    <button routerLink="/HistoryRegistrationPets" class="button-submit">ดูรายการสัตว์เลี้ยง</button>
+                    <button routerLink="/HistoryRegistrationPets" class="button-update">อัพเดทข้อมูล</button>
+                    <button routerLink="/RecordRegistration" class="button-cancel">ยกเลิก</button>
+                </div>
+        </form>
+    </div>
+</div>

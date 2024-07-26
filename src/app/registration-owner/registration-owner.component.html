@@ -1,0 +1,144 @@
+<div class="container-record">
+    <div class="content">
+        <div class="p-3"><p>แบบฟอร์มขึ้นทะเบียนสัตว์เลี้ยง</p></div>
+        <div class="wrapper">
+            <div class="header">
+              <ul>
+                <li class="active form_1_progessbar">
+                  <div>
+                    <p>1</p>
+                  </div>
+                  <span>ข้อมูลเจ้าของสัตว์เลี้ยง</span>
+                </li>
+                <li class="form_2_progessbar">
+                  <div>
+                    <p>2</p>
+                  </div>
+                  <span>ข้อมูลสัตว์เลี้ยง</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+    </div>
+    <div class="content">
+        <div class="grid-content">
+            <div class="text-content">
+                <i class="fas fa-user"></i>ข้อมูลเจ้าของสัตว์เลี้ยง
+            </div>
+            <div class="box-content1">
+                <p style="margin-top: 10px;">รูปโปรไฟล์</p>
+                <div class="img-profile">
+                    <img src="/assets/profile.png">
+                    <input type="file" id="selfie" name="selfie" accept="image/*" capture="user" />
+                    <label for="selfie"><i class="fas fa-camera" style="color: aliceblue; margin: 0px;"></i></label>
+                </div>
+            </div>
+        </div>
+        <form class="form-signin" action="#" method="POST">
+
+            <div class="grid-3">
+                <div class="text-form">
+                    <p>คำนำหน้า *</p>
+                    <select name="#" id="#" class="form-select" aria-label="Default select example">
+                        <option value="0">คำนำหน้า</option>
+                        <option value="1">ชาย</option>
+                        <option value="2">หญิง</option>
+                    </select>
+                </div>
+
+                <div class="text-form">
+                    <p>ชื่อ *</p>
+                    <input type="text" class="form-control" id="#" name="#" placeholder="ชื่อภาษาไทย" value="" required
+                        autofocus>
+                </div>
+
+                <div class="text-form">
+                    <p>นามสกุล *</p>
+                    <input type="text" class="form-control" id="#" name="#" placeholder="นามสกุลภาษาไทย" value=""
+                        required autofocus>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="text-form">
+                    <p>วัน/เดือน/ปีเกิด *</p>
+                    <input type="date" class="form-control" id="#" name="#" placeholder="Birthday" value="#" required>
+                </div>
+
+                <div class="text-form">
+                    <p>อายุ</p>
+                    <input type="number" class="form-control" id="#" name="#" placeholder="อายุ" value="#" required>
+                </div>
+            </div>
+            <div class="grid-5">
+                <div class="text-form">
+                    <p>โทรศัพท์มือถือ *</p>
+                    <input type="number" class="form-control" id="#" name="#" placeholder="เบอร์โทรศัพท์มือถือ"
+                        value="#" required>
+                </div>
+                <div>
+                    <div class="text-form">
+                        <p>ประวัติการได้รับวัดซีนพิษสุนัข์บ้า *</p>
+                        <div class="grid-4">
+                            <div class="checkbox-wrapper-42">
+                                <input id="cbx-42" type="checkbox" />
+                                <label class="cbx" for="cbx-42"></label>
+                                <label class="lbl" for="cbx-42">เคย</label>
+                            </div>
+                            <div class="text-form1">
+                                <p style="width:45px;">วันที่</p>
+                                <input type="text" class="form-control" id="#" name="#" placeholder="วันที่" value=""
+                                    required autofocus>
+                            </div>
+                            <div class="text-form1">
+                                <p>เดือน</p>
+                                <input type="text" class="form-control" id="#" name="#" placeholder="เดือน" value=""
+                                    required autofocus>
+                            </div>
+                            <div class="text-form1">
+                                <p>ปี</p>
+                                <input type="text" class="form-control" id="#" name="#" placeholder="ปี" value=""
+                                    required autofocus>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkbox-wrapper-42">
+                        <input id="cbx-43" type="checkbox" />
+                        <label class="cbx" for="cbx-43"></label>
+                        <label class="lbl" for="cbx-43">ไม่เคย</label>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-6">
+                <div class="text-form">
+                    <p>อีเมล</p>
+                    <input type="email" class="form-control" id="#" name="#" placeholder="อีเมล" value="" required>
+                </div>
+                <div>
+                    <div class="text-form" style="margin-top: 5px;">
+                        <p>ประวัติการถูกกัด / ข่วน *</p>
+                        <div class="grid-7">
+                            <div class="checkbox-wrapper-42">
+                                <input id="cbx-44" type="checkbox" />
+                                <label class="cbx" for="cbx-44"></label>
+                                <label class="lbl" for="cbx-44">เคย</label>
+                            </div>
+                            <div class="text-form1">
+                                <p style="width:55px;">ครั้ง/ปี</p>
+                                <input type="text" class="form-control" id="#" name="#" placeholder="จำนวนครั้ง"
+                                    value="" required autofocus>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkbox-wrapper-42">
+                        <input id="cbx-45" type="checkbox" />
+                        <label class="cbx" for="cbx-45"></label>
+                        <label class="lbl" for="cbx-45">ไม่เคย</label>
+                    </div>
+                </div>
+            </div>
+            <button routerLink="/RegistrationAddress" class="button-login"
+                style="margin-top: 15px;">บันทึกข้อมูล</button>
+        </form>
+    </div>
+</div>
