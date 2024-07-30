@@ -26,25 +26,34 @@
                 </div>
             </div>
 
-            <div class="text-form">
-                <p>จังหวัด *</p>
-                <select class="form-control" name="Ref_prov_id" id="provinces_1">
-                    <option value="" selected disabled>-กรุณาเลือกจังหวัด-</option>
-                </select>
-            </div>
-            <div class="text-form">
-                <p>อำเภอ *</p>
-                <select class="form-control" name="Ref_prov_id" id="provinces_1">
-                    <option value="" selected disabled>-กรุณาเลือกอำเภอ-</option>
-                </select>
-            </div>
+             <div class="text-form">
+        <p>จังหวัด *</p>
+        <select class="form-control" name="Ref_prov_id" id="province" (change)="getAmphures()" 
+                [(ngModel)]="selectedProvince" required>
+          <option value="" selected disabled>-กรุณาเลือกจังหวัด-</option>
+          <option *ngFor="let province of provinces" [value]="province.id">{{ province.name_th }}</option>
+        </select>
+      </div>
+
+      <div class="text-form">
+        <p>อำเภอ *</p>
+        <select class="form-control" name="Ref_amphure_id" id="amphure" (change)="getDistricts()" 
+                [(ngModel)]="selectedAmphure" required>
+          <option value="" selected disabled>-กรุณาเลือกอำเภอ-</option>
+          <option *ngFor="let amphure of amphures" [value]="amphure.id">{{ amphure.name_th }}</option>
+        </select>
+      </div>
+
             <div class="grid-2">
                 <div class="text-form">
-                    <p>แขวง/ตำบล *</p>
-                    <select class="form-control" name="Ref_prov_id" id="provinces_1">
-                        <option value="" selected disabled>-กรุณาเลือกแขวง/ตำบล-</option>
-                    </select>
-                </div>
+          <p>แขวง/ตำบล *</p>
+          <select class="form-control" name="Ref_tambon_id" id="tambon" (change)="onTambonChange()" 
+                  [(ngModel)]="selectedTambon" required>
+            <option value="" selected disabled>-กรุณาเลือกแขวง/ตำบล-</option>
+            <option *ngFor="let tambon of tambons" [value]="tambon.id">{{ tambon.name_th }}</option>
+          </select>
+        </div>
+
                 <div class="text-form">
                     <p>หมู่</p>
                     <input type="text" class="form-control" id="#" name="#" placeholder="หมู่" value="">

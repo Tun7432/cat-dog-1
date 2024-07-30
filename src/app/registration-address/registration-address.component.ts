@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { DataService } from '../data.service';
+import { Tambon } from '../model/Tambon.model';
 
 @Component({
   selector: 'app-registration-address',
@@ -20,10 +21,12 @@ export class RegistrationAddressComponent implements OnInit {
   selectedProvince: string = '';
   selectedAmphure: string = '';
   selectedTambon: string = '';
+  postalCode: string = '';
 
   constructor(
     private dataService: DataService,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
@@ -34,7 +37,6 @@ export class RegistrationAddressComponent implements OnInit {
     this.httpClient.get<any[]>(`${this.dataService.apiEndpoint}/provinces`).subscribe(
       (response: any[]) => {
         this.provinces = response;
-        console.log(this.provinces);
       },
       (error) => {
         console.error('Error loading provinces:', error);
@@ -42,38 +44,47 @@ export class RegistrationAddressComponent implements OnInit {
     );
   }
 
-   getAmphures() {
-  console.log('getAmphures called with province:', this.selectedProvince);
-  if (this.selectedProvince) {
-    this.httpClient.get<any[]>(`${this.dataService.apiEndpoint}/amphures/${this.selectedProvince}`).subscribe(
-      (response: any[]) => {
-        console.log('Amphures received:', response);
-        this.amphures = response;
-        this.selectedAmphure = '';
-        this.tambons = [];
-        this.selectedTambon = '';
-      },
-      (error) => {
-        console.error('Error loading amphures:', error);
-      }
-    );
+  getAmphures() {
+    if (this.selectedProvince) {
+      this.httpClient.get<any[]>(`${this.dataService.apiEndpoint}/amphures/${this.selectedProvince}`).subscribe(
+        (response: any[]) => {
+          this.amphures = response;
+          this.selectedAmphure = '';
+          this.tambons = [];
+          this.selectedTambon = '';
+        },
+        (error) => {
+          console.error('Error loading amphures:', error);
+        }
+      );
+    }
+  }
+
+  getDistricts() {
+    if (this.selectedAmphure) {
+      this.httpClient.get<any[]>(`${this.dataService.apiEndpoint}/tambons/${this.selectedAmphure}`).subscribe(
+        (response: any[]) => {
+          this.tambons = response;
+          this.selectedTambon = '';
+          console.log(this.tambons);
+          console.log(JSON.stringify(response));
+          
+        },
+        (error) => {
+          console.error('Error loading tambons:', error);
+        }
+      );
+    }
+  }
+
+  onTambonChange() {
+  const selectedTambonObj = this.tambons.find(tambon => tambon.id === this.selectedTambon);
+  console.log('Selected Tambon:', selectedTambonObj);
+  if (selectedTambonObj) {
+    this.postalCode = selectedTambonObj.zip_code;
+    console.log('Postal Code:', this.postalCode);
+    this.cdr.detectChanges();
   }
 }
 
-getDistricts() {
-  console.log('getDistricts called with amphure:', this.selectedAmphure);
-  if (this.selectedAmphure) {
-    this.httpClient.get<any[]>(`${this.dataService.apiEndpoint}/tambons/${this.selectedAmphure}`).subscribe(
-      (response: any[]) => {
-        console.log('Tambons received:', response);
-        this.tambons = response;
-        this.selectedTambon = '';
-      },
-      (error) => {
-        console.error('Error loading tambons:', error);
-      }
-    );
-  }
-}
-  
 }
