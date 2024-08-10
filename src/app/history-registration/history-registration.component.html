@@ -1,86 +1,66 @@
 <div class="container-record">
-    <div class="content">
-        <div class="p-3"><p>แบบฟอร์มขึ้นทะเบียนสัตว์เลี้ยง</p></div>
-        <div class="wrapper">
-            <div class="header">
-              <ul>
-                <li class="active form_1_progessbar">
-                  <div>
-                    <p>1</p>
-                  </div>
-                  <span>ข้อมูลเจ้าของสัตว์เลี้ยง</span>
-                </li>
-                <li class=" form_2_progessbar">
-                  <div>
-                    <p>2</p>
-                  </div>
-                  <span>ข้อมูลสัตว์เลี้ยง</span>
-                </li>
-              </ul>
-            </div>
-          </div>
+  <div class="content">
+    <div class="p-3">
+      <p>แบบฟอร์มขึ้นทะเบียนสัตว์เลี้ยง</p>
     </div>
-    <div class="content">
-        <div class="grid-content">
-            <div class="text-content box-2">
-                <p><i class="fas fa-search"></i>ค้นหาเจ้าของสัตว์เลี้ยง</p>
-                <button class="button-map">ยกเลิก</button>
-            </div>
+    <div class="wrapper">
+      <div class="header">
+        <ul>
+          <li class="active form_1_progessbar">
+            <div><p>1</p></div>
+            <span>ข้อมูลเจ้าของสัตว์เลี้ยง</span>
+          </li>
+          <li class="form_2_progessbar">
+            <div><p>2</p></div>
+            <span>ข้อมูลสัตว์เลี้ยง</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="grid-content">
+      <div class="text-content box-2">
+        <p><i class="fas fa-search"></i>ค้นหาเจ้าของสัตว์เลี้ยง</p>
+        <button class="button-map" (click)="cancelSearch()">ยกเลิก</button>
+      </div>
+    </div>
+    <form class="form-signin" (ngSubmit)="searchOwners()">
+      <div class="text-form">
+        <p>ชื่อ</p>
+        <input type="text" [(ngModel)]="firstName" name="firstName" class="form-control" placeholder="ชื่อภาษาไทย">
+      </div>
+      <div class="text-form">
+        <p>นามสกุล</p>
+        <input type="text" [(ngModel)]="lastName" name="lastName" class="form-control" placeholder="นามสกุลภาษาไทย">
+      </div>
+      <div class="text-form">
+        <p>เบอร์โทรศัพท์</p>
+        <div class="grid-search">
+          <input type="search" [(ngModel)]="phone" name="phone" placeholder="ค้นหาเบอร์โทรศัพท์ ..">
+          <button class="button-submit" type="submit"><i class="fa fa-search"></i></button>
         </div>
-        <form class="form-signin" action="#" method="POST">
-            <div class="text-form">
-                <p>ชื่อ</p>
-                <input type="text" class="form-control" id="#" name="#" placeholder="ชื่อภาษาไทย" value="">
-            </div>
-
-            <div class="text-form">
-                <p>นามสกุล</p>
-                <input type="text" class="form-control" id="#" name="#" placeholder="นามสกุลภาษาไทย" value="">
-            </div>
-            <div class="text-form">
-            <p>เบอร์โทรศัพท์</p>
-            <div class="grid-search">
-                <input type="search" placeholder="ค้นหาเบอร์โทรศัพท์ .." name="search">
-                <div routerLink="/HistoryOwnerComponent" class="button-submit" style="height: 100%;" type="submit"><i class="fa fa-search"></i>
-                </div>
-            </div>
-            </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th scope="col">ลำดับ</th>
-                            <th scope="col">ชื่อ-นามสกุล</th>
-                            <th scope="col">เบอร์โทรศัพท์</th>
-                            <th scope="col">จัดการข้อมูล</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-label="ลำดับ">1</td>
-                            <td data-label="ชื่อ-นามสกุล">นายใจดี สู้เสือ</td>
-                            <td data-label="เบอร์โทรศัพท์"><div class="box-number">061-1234567</div></td>
-                            <td data-label="จัดการข้อมูล">
-                                    <button routerLink="/HistoryOwnerComponent" class="button-submit" style="padding: 10px 15px;"><i style="margin: 0px;" class="far fa-check-square"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td data-label="ลำดับ">2</td>
-                            <td data-label="ชื่อ-นามสกุล">นายใจดี สู้เสือ</td>
-                            <td data-label="เบอร์โทรศัพท์"><div class="box-number">061-1234567</div></td>
-                            <td data-label="จัดการข้อมูล">
-                                    <button class="button-submit" style="padding: 10px 15px;"><i style="margin: 0px;" class="far fa-check-square"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td data-label="ลำดับ">3</td>
-                            <td data-label="ชื่อ-นามสกุล">นายใจดี สู้เสือ</td>
-                            <td data-label="เบอร์โทรศัพท์"><div class="box-number">061-1234567</div></td>
-                            <td data-label="จัดการข้อมูล">
-                                    <button class="button-submit" style="padding: 10px 15px;"><i style="margin: 0px;" class="far fa-check-square"></i></button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-        </form>
-    </div>
-    </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">ลำดับ</th>
+            <th scope="col">ชื่อ-นามสกุล</th>
+            <th scope="col">เบอร์โทรศัพท์</th>
+            <th scope="col">จัดการข้อมูล</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let owner of searchResults; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{owner.first_name}} {{owner.last_name}}</td>
+            <td><div class="box-number">{{owner.phone}}</div></td>
+            <td>
+              <button class="button-submit" (click)="manageOwner(owner)"><i class="far fa-check-square"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>

@@ -13,14 +13,23 @@ import { DataService } from '../data.service';
   styleUrls: ['./history-stray.component.scss']
 })
 export class HistoryStrayComponent implements OnInit {
+[x: string]: any;
   provinces: any[] = [];
   amphures: any[] = [];
   tambons: any[] = [];
+  searchResults: any[] = [];
   selectedProvince: string = '';
   selectedAmphure: string = '';
   selectedTambon: string = '';
+  village: string = '';
+  landmark: string = '';
+  houseNumber: string = '';
+  alley: string = '';
+  road: string = '';
+  postalCode: string = '';
+  informerName: string = '';
 
-  constructor(private dataService: DataService,private httpClient: HttpClient) {}
+  constructor(private dataService: DataService, private httpClient: HttpClient) {}
 
   ngOnInit() {
     this.getProvinces();
@@ -30,7 +39,6 @@ export class HistoryStrayComponent implements OnInit {
     this.httpClient.get<any[]>(`${this.dataService.apiEndpoint}/provinces`).subscribe(
       (response: any[]) => {
         this.provinces = response;
-        console.log(this.provinces);
       },
       (error) => {
         console.error('Error loading provinces:', error);
@@ -38,37 +46,57 @@ export class HistoryStrayComponent implements OnInit {
     );
   }
 
-   getAmphures() {
-  console.log('getAmphures called with province:', this.selectedProvince);
-  if (this.selectedProvince) {
-    this.httpClient.get<any[]>(`${this.dataService.apiEndpoint}/amphures/${this.selectedProvince}`).subscribe(
-      (response: any[]) => {
-        console.log('Amphures received:', response);
-        this.amphures = response;
-        this.selectedAmphure = '';
-        this.tambons = [];
-        this.selectedTambon = '';
-      },
-      (error) => {
-        console.error('Error loading amphures:', error);
-      }
-    );
+  getAmphures() {
+    if (this.selectedProvince) {
+      this.httpClient.get<any[]>(`${this.dataService.apiEndpoint}/amphures/${this.selectedProvince}`).subscribe(
+        (response: any[]) => {
+          this.amphures = response;
+          this.selectedAmphure = '';
+          this.tambons = [];
+          this.selectedTambon = '';
+        },
+        (error) => {
+          console.error('Error loading amphures:', error);
+        }
+      );
+    }
   }
-}
 
-getDistricts() {
-  console.log('getDistricts called with amphure:', this.selectedAmphure);
-  if (this.selectedAmphure) {
-    this.httpClient.get<any[]>(`${this.dataService.apiEndpoint}/tambons/${this.selectedAmphure}`).subscribe(
+  getDistricts() {
+    if (this.selectedAmphure) {
+      this.httpClient.get<any[]>(`${this.dataService.apiEndpoint}/tambons/${this.selectedAmphure}`).subscribe(
+        (response: any[]) => {
+          this.tambons = response;
+          this.selectedTambon = '';
+        },
+        (error) => {
+          console.error('Error loading tambons:', error);
+        }
+      );
+    }
+  }
+
+  searchStrayPets() {
+    const params = {
+      Ref_prov_id: this.selectedProvince,
+      Ref_amphure_id: this.selectedAmphure,
+      Ref_tambon_id: this.selectedTambon,
+      village: this.village,
+      landmark: this.landmark,
+      house_number: this.houseNumber,
+      alley: this.alley,
+      road: this.road,
+      postal_code: this.postalCode,
+      informer_name: this.informerName
+    };
+
+    this.httpClient.get<any[]>(`${this.dataService.apiEndpoint}/search-stray-pets`, { params }).subscribe(
       (response: any[]) => {
-        console.log('Tambons received:', response);
-        this.tambons = response;
-        this.selectedTambon = '';
+        this.searchResults = response;
       },
       (error) => {
-        console.error('Error loading tambons:', error);
+        console.error('Error searching stray pets:', error);
       }
     );
   }
-}
 }

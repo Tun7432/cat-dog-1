@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { DataService } from '../data.service';
 
 @Component({
@@ -19,8 +19,15 @@ export class AnalyzeSearchOwnerComponent implements OnInit {
   selectedProvince: string = '';
   selectedAmphure: string = '';
   selectedTambon: string = '';
+  startDate: string = '';
+  endDate: string = '';
+  village_number: string = '';
 
-  constructor(private dataService: DataService,private httpClient: HttpClient) {}
+  constructor(
+    private dataService: DataService,
+    private httpClient: HttpClient,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.getProvinces();
@@ -38,37 +45,45 @@ export class AnalyzeSearchOwnerComponent implements OnInit {
     );
   }
 
-   getAmphures() {
-  console.log('getAmphures called with province:', this.selectedProvince);
-  if (this.selectedProvince) {
-    this.httpClient.get<any[]>(`${this.dataService.apiEndpoint}/amphures/${this.selectedProvince}`).subscribe(
-      (response: any[]) => {
-        console.log('Amphures received:', response);
-        this.amphures = response;
-        this.selectedAmphure = '';
-        this.tambons = [];
-        this.selectedTambon = '';
-      },
-      (error) => {
-        console.error('Error loading amphures:', error);
-      }
-    );
+  getAmphures() {
+    if (this.selectedProvince) {
+      this.httpClient.get<any[]>(`${this.dataService.apiEndpoint}/amphures/${this.selectedProvince}`).subscribe(
+        (response: any[]) => {
+          this.amphures = response;
+          this.selectedAmphure = '';
+          this.tambons = [];
+          this.selectedTambon = '';
+        },
+        (error) => {
+          console.error('Error loading amphures:', error);
+        }
+      );
+    }
   }
-}
 
-getDistricts() {
-  console.log('getDistricts called with amphure:', this.selectedAmphure);
-  if (this.selectedAmphure) {
-    this.httpClient.get<any[]>(`${this.dataService.apiEndpoint}/tambons/${this.selectedAmphure}`).subscribe(
-      (response: any[]) => {
-        console.log('Tambons received:', response);
-        this.tambons = response;
-        this.selectedTambon = '';
-      },
-      (error) => {
-        console.error('Error loading tambons:', error);
-      }
-    );
+  getDistricts() {
+    if (this.selectedAmphure) {
+      this.httpClient.get<any[]>(`${this.dataService.apiEndpoint}/tambons/${this.selectedAmphure}`).subscribe(
+        (response: any[]) => {
+          this.tambons = response;
+          this.selectedTambon = '';
+        },
+        (error) => {
+          console.error('Error loading tambons:', error);
+        }
+      );
+    }
   }
-}
+
+  search() {
+    const queryParams = {
+      start_date: this.startDate,
+      end_date: this.endDate,
+      province: this.selectedProvince,
+      district: this.selectedAmphure,
+      sub_district: this.selectedTambon,
+      village: this.village_number
+    };
+    this.router.navigate(['/AnalyzeOwner'], { queryParams });
+  }
 }

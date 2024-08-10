@@ -1,24 +1,27 @@
 <div class="container-record">
     <div class="content">
-        <div class="p-3"><p>การรายงานผลการวิเคราะห์ข้อมูลสุนัขและแมว</p></div>
+        <div class="p-3">
+            <p>การรายงานผลการวิเคราะห์ข้อมูลสุนัขและแมว</p>
+        </div>
     </div>
     <div class="content">
         <div class="grid-content grid-text">
-            <p><span>วันสำรวจ :</span> วันที่ 1 ตุลาคม 2564 - 30 กันยายน 2565</p>
-            <p><span>พื้นที่สำรวจ :</span> หมู่ - ตำบลบางเขน อำเภอเมือง จังหวัดนนทบุรี</p>
-            <p><span>จำนวนเจ้าของสุนัขและแมวที่สำรวจ :</span> 216 คน</p>
+            <p><span>วันสำรวจ :</span> {{ formattedDateRange }}</p>
+            <p><span>พื้นที่สำรวจ :</span> หมู่ {{ villageNumber }} - ตำบล{{ subDistrict }} อำเภอ{{ district }} จังหวัด{{ province }}</p>
+            <p><span>จำนวนสุนัขและแมวที่สำรวจ :</span> {{ surveyData?.total_owners || 0 }} คน</p>
             <p><span>ข้อมูลสุนัขที่สำรวจ :</span></p>
-            <p>สุนัขมีเจ้าของ : จำนวน 170 ตัว</p>
-            <p>สุนัขจรจัด : จำนวน 22 ตัว รวม 192 ตัว</p>
-            <p><span>ทำหมัน :</span> จำนวน 101 ตัว คงเหลือ 91 ตัว</p> 
-            <p><span>ได้รับการฉีดวัคซีนป้องกันโรคพิษสุนัขบ้า :</span> จำนวน 108 ตัว คิดเป็นร้อยละ 50</p>
+            <p>สุนัขมีเจ้าของ : จำนวน {{ surveyData?.owned_dogs || 0 }} ตัว</p>
+            <p>สุนัขจรจัด : จำนวน {{ surveyData?.stray_dogs || 0 }} ตัว รวม {{ surveyData?.total_dogs || 0 }} ตัว</p>
+            <p><span>ทำหมัน :</span> จำนวน {{ surveyData?.neutered_dogs || 0 }} ตัว คงเหลือ {{ surveyData?.unneutered_dogs || 0 }} ตัว</p> 
+            <p><span>ได้รับการฉีดวัคซีนป้องกันโรคพิษสุนัขบ้า :</span> จำนวน {{ surveyData?.vaccinated_dogs || 0 }} ตัว คิดเป็นร้อยละ {{ surveyData?.vaccination_rate_dogs || 0 }}</p>
             <hr>
             <p><span>ข้อมูลแมวที่สำรวจ :</span></p>
-            <p>สุนัขมีเจ้าของ : จำนวน 170 ตัว</p>
-            <p>สุนัขจรจัด : จำนวน 22 ตัว รวม 192 ตัว</p>
-            <p><span>ทำหมัน :</span> จำนวน 101 ตัว คงเหลือ 91 ตัว</p> 
-            <p><span>ได้รับการฉีดวัคซีนป้องกันโรคพิษสุนัขบ้า :</span> จำนวน 108 ตัว คิดเป็นร้อยละ 50</p>
+            <p>แมวมีเจ้าของ : จำนวน {{ surveyData?.owned_cats || 0 }} ตัว</p>
+            <p>แมวจรจัด : จำนวน {{ surveyData?.stray_cats || 0 }} ตัว รวม {{ surveyData?.total_cats || 0 }} ตัว</p>
+            <p><span>ทำหมัน :</span> จำนวน {{ surveyData?.neutered_cats || 0 }} ตัว คงเหลือ {{ surveyData?.unneutered_cats || 0 }} ตัว</p> 
+            <p><span>ได้รับการฉีดวัคซีนป้องกันโรคพิษสุนัขบ้า :</span> จำนวน {{ surveyData?.vaccinated_cats || 0 }} ตัว คิดเป็นร้อยละ {{ surveyData?.vaccination_rate_cats || 0 }}</p>
             <button routerLink="/InformationArea" class="button-xls" style="margin-top: 5px;"><i class="fas fa-file-excel"></i>Download file xls</button>
             <button routerLink="/InformationArea" class="button-update" style="margin-top: 5px; margin-left: 5px;"><i class="fas fa-map"></i>รายการข้อมูลพื้นที่</button> 
         </div>
+    </div>
 </div>
