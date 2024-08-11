@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { DataService } from '../data.service';
 
 
@@ -20,8 +20,14 @@ export class AnalyzeSearchRabiesComponent implements OnInit {
   selectedProvince: string = '';
   selectedAmphure: string = '';
   selectedTambon: string = '';
+  startDate: string = '';
+  endDate: string = '';
+  location: string = '';
+  villageNumber: string = '';
 
-  constructor(private dataService: DataService,private httpClient: HttpClient) {}
+
+
+  constructor(private httpClient: HttpClient, private router: Router, private dataService: DataService) {}
 
   ngOnInit() {
     this.getProvinces();
@@ -72,4 +78,20 @@ getDistricts() {
     );
   }
 }
+  
+  
+   onSearch() {
+    const queryParams = {
+      start_date: this.startDate,
+      end_date: this.endDate,
+      location: this.location,
+      province: this.selectedProvince,
+      amphure: this.selectedAmphure,
+      tambon: this.selectedTambon,
+      village_number: this.villageNumber
+    };
+
+    this.router.navigate(['/AnalyzeRabies'], { queryParams });
+  }
+  
 }

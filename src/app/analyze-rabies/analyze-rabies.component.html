@@ -4,13 +4,11 @@
     </div>
     <div class="content">
         <div class="grid-content grid-text">
-            <p><span>วันสำรวจ :</span> วันที่ 1 ตุลาคม 2564 - 30 กันยายน 2565</p>
-            <p><span>พื้นที่สำรวจ :</span> หมู่ - ตำบลบางเขน อำเภอเมือง จังหวัดนนทบุรี</p>
-            <p><span>จำนวนเจ้าของสุนัขและแมวที่สำรวจ :</span> 216 คน</p>
-            <p><span>ข้อมูลสัตว์ที่ป่วยหรือตายด้วยโรคพิษสุนัขบ้า :</span> จำนวน 2 ตัว</p>
-            <p><span>ดัชนีอนามัย :</span> อัตราอุบัติการณ์ = 0.85</p>
-
-            <button routerLink="/InformationArea" class="button-xls" style="margin-top: 5px;"><i class="fas fa-file-excel"></i>Download file xls</button>
-            <button routerLink="/InformationArea" class="button-update" style="margin-top: 5px; margin-left: 5px;"><i class="fas fa-map"></i>รายการข้อมูลพื้นที่</button> 
+            <p><span>วันสำรวจ :</span> วันที่ {{formattedDateRange}}</p>
+            <p><span>พื้นที่สำรวจ :</span> หมู่ {{ surveyData?.villageNumber }} - ตำบล{{ surveyData?.subDistrict }} อำเภอ{{ surveyData?.district }} จังหวัด{{ surveyData?.province }}</p>
+            <p><span>จำนวนสุนัขและแมวที่สำรวจ :</span> {{ surveyData?.totalPets || 0 }} ตัว</p>
+            <p><span>ข้อมูลสัตว์ที่ป่วยหรือตายด้วยโรคพิษสุนัขบ้า :</span> จำนวน {{ surveyData?.totalCases || 0 }} ตัว</p>
+            <p><span>อัตราการเกิดโรค :</span> {{ surveyData?.incidenceRate || 0 | number: '1.2-2' }}%</p>
         </div>
+    </div>
 </div>

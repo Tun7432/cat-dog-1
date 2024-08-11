@@ -1,59 +1,52 @@
 <div class="container-record">
     <div class="content">
-        <div class="p-3"><p>การรายงานผลการวิเคราะห์ข้อมูลโรคพิษสุนัขบ้า</p></div>
+        <div class="p-3">
+            <p>การรายงานผลการวิเคราะห์ข้อมูลโรคพิษสุนัขบ้า</p>
+        </div>
     </div>
     <div class="content">
-        <div class="grid-content">
-            <div class="text-content">
-                <p><i class="fas fa-search"></i>ค้นหา</p>
-            </div>
+        <div class="grid-content grid-text">
+            <p><i class="fas fa-search"></i>ค้นหา</p>
         </div>
-        <form class="form-signin" action="#" method="POST">
-            <div class="text-form">
-                <p>เวลา *</p>
-                <input type="text" class="form-control" id="#" name="#" value=""  required>
-            </div>
+        <form (ngSubmit)="onSearch()" #searchForm="ngForm">
             <div class="text-form">
                 <p>ตั้งแต่วันที่ *</p>
-                <input type="date" class="form-control" id="#" name="#" value="" required>
+                <input type="date" class="form-control" [(ngModel)]="startDate" name="startDate" required>
             </div>
             <div class="text-form">
                 <p>ถึงวันที่ *</p>
-                <input type="date" class="form-control" id="#" name="#" placeholder="นามสกุล" value="" required>
+                <input type="date" class="form-control" [(ngModel)]="endDate" name="endDate" required>
             </div>
             <div class="text-form">
                 <p>สถานที่พบ</p>
-                <textarea type="text" class="form-control" id="#" name="#" placeholder="ตลาด/ถนน/วัด" value=""></textarea>
+                <textarea class="form-control" [(ngModel)]="location" name="location"></textarea>
             </div>
             <div class="text-form">
-    <p>จังหวัด *</p>
-    <select class="form-control" name="Ref_prov_id" id="province" 
-        (change)="getAmphures()" [(ngModel)]="selectedProvince" required>
-        <option value="" selected disabled>-กรุณาเลือกจังหวัด-</option>
-        <option *ngFor="let province of provinces" [value]="province.id">{{ province.name_th }}</option>
-    </select>
-</div>
-<div class="text-form">
-    <p>อำเภอ *</p>
-    <select class="form-control" name="Ref_amphure_id" id="amphure" 
-        (change)="getDistricts()" [(ngModel)]="selectedAmphure" required>
-        <option value="" selected disabled>-กรุณาเลือกอำเภอ-</option>
-        <option *ngFor="let amphure of amphures" [value]="amphure.id">{{ amphure.name_th }}</option>
-    </select>
-</div>
-                    <div class="text-form">
-    <p>แขวง/ตำบล *</p>
-    <select class="form-control" name="Ref_tambon_id" id="tambon" 
-        [(ngModel)]="selectedTambon" required>
-        <option value="" selected disabled>-กรุณาเลือกแขวง/ตำบล-</option>
-        <option *ngFor="let tambon of tambons" [value]="tambon.id">{{ tambon.name_th }}</option>
-    </select>
-</div> 
+                <p>จังหวัด *</p>
+                <select class="form-control" [(ngModel)]="selectedProvince" name="province" (change)="getAmphures()" required>
+                    <option value="" disabled>-กรุณาเลือกจังหวัด-</option>
+                    <option *ngFor="let province of provinces" [value]="province.id">{{ province.name_th }}</option>
+                </select>
+            </div>
+            <div class="text-form">
+                <p>อำเภอ *</p>
+                <select class="form-control" [(ngModel)]="selectedAmphure" name="amphure" (change)="getDistricts()" required>
+                    <option value="" disabled>-กรุณาเลือกอำเภอ-</option>
+                    <option *ngFor="let amphure of amphures" [value]="amphure.id">{{ amphure.name_th }}</option>
+                </select>
+            </div>
+            <div class="text-form">
+                <p>แขวง/ตำบล *</p>
+                <select class="form-control" [(ngModel)]="selectedTambon" name="tambon" required>
+                    <option value="" disabled>-กรุณาเลือกแขวง/ตำบล-</option>
+                    <option *ngFor="let tambon of tambons" [value]="tambon.id">{{ tambon.name_th }}</option>
+                </select>
+            </div>
             <div class="text-form">
                 <p>หมู่</p>
-                <input type="text" class="form-control" id="#" name="#" placeholder="หมู่" value="">
+                <input type="text" class="form-control" [(ngModel)]="villageNumber" name="villageNumber">
             </div>
-            <button routerLink="/AnalyzeRabies" class="button-submit" style="width: 100%;"><i class="fas fa-search"></i>ค้นหา</button>
+            <button type="submit" class="button-submit" style="width: 100%;"><i class="fas fa-search"></i>ค้นหา</button>
         </form>
     </div>
 </div>
